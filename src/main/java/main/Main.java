@@ -20,8 +20,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         AccountService accountService = new AccountService();
 
-        accountService.addNewUser(new UserProfile("admin"));
-        accountService.addNewUser(new UserProfile("test"));
+//        accountService.addNewUser(new UserProfile("admin"));
+//        accountService.addNewUser(new UserProfile("test"));
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new UsersServlet(accountService)), "/api/v1/users");
