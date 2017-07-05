@@ -32,8 +32,11 @@ public class SignUpServlet extends HttpServlet {
             return;
         }
 
-        accountService.addNewUser(new UserProfile(login, password));
-
+        try {
+            accountService.addNewUser(new UserProfile(login, password));
+        } catch (DBException e) {
+            e.printStackTrace();
+        }
 
 
         UserProfile profile = accountService.getUserByLogin(login);
