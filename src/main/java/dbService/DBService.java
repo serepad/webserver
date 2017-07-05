@@ -2,10 +2,7 @@ package dbService;
 
 import dbService.dao.UsersDAO;
 import dbService.dataSets.UsersDataSet;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.internal.SessionFactoryImpl;
@@ -13,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by SERhiO on 20.06.2017.
@@ -108,6 +106,12 @@ public class DBService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<UsersDataSet> getAll() {
+        Session session = sessionFactory.openSession();
+        Criteria criteria = session.createCriteria(UsersDataSet.class);
+        return (List<UsersDataSet>) criteria.list();
     }
 
     private static SessionFactory createSessionFactory(Configuration configuration) {
