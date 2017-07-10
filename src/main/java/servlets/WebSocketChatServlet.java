@@ -1,6 +1,7 @@
 package servlets;
 
 import chat.ChatService;
+import chat.ChatWebSocket;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 import javax.servlet.annotation.WebServlet;
